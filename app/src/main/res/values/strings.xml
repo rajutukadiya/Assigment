@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Assigment Task</string>
+    <string name="no_network_connectivity">No Intenet Connection</string>
+    <string name="hint_email_or_phone">Email or phone</string>
+    <string name="hint_password">Password</string>
+    <string name="title_login">Login</string>
+    <string name="title_register">Register</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Phone</string>
+    <string name="title_submit">Submit</string>
+    <string name="valid_name">Please enter name</string>
+    <string name="empty_email">Please enter email</string>
+    <string name="valid_email">Please enter valid email</string>
+    <string name="empty_phone">Please enter phone number</string>
+    <string name="empty_password">Please enter password</string>
+    <string name="successfully_registered">Successfully Registered!!</string>
+    <string name="empty_email_or_phone">Please enter email or phone</string>
+    <string name="invalid_credentials">Invalid Credentials</string>
+    <string name="title_seated">Seated</string>
+    <string name="title_tableview">Table view</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="login">Login</string>
+    <string name="pleasecheckinternetconnection">please check internet connection</string>
+    <string name="tableno">Table no:</string>
+    <string name="bookingdate">Booking date:</string>
+    <string name="booking">#</string>
+    <string name="title_activity_table_view">TableViewActivity</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>
