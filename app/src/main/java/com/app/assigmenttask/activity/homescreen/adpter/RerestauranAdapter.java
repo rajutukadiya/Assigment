@@ -18,7 +18,7 @@ import com.app.assigmenttask.activity.homescreen.model.RerestaurantModel;
 import com.app.assigmenttask.activity.seated.ui.SeatedActivity;
 import com.app.assigmenttask.activity.tableview.ui.TableViewActivity;
 import com.app.assigmenttask.retrofit.HostSelectionInterceptor;
-import com.app.assigmenttask.utils.util;
+import com.app.assigmenttask.utils.Util;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
@@ -28,8 +28,8 @@ import okhttp3.HttpUrl;
 
 public class RerestauranAdapter extends RecyclerView.Adapter<RerestauranAdapter.ViewHolder> {
     private final List<RerestaurantModel.DataDTO.RestaurantsDTO.Datam> rerestaurantModelList;
-    private Context context;
-    private HostSelectionInterceptor hostSelectionInterceptor;
+    private final Context context;
+    private final HostSelectionInterceptor hostSelectionInterceptor;
 
 
     // RecyclerView recyclerView;
@@ -70,7 +70,7 @@ public class RerestauranAdapter extends RecyclerView.Adapter<RerestauranAdapter.
         holder.btnSeated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HttpUrl newUrl = HttpUrl.parse(util.BASE_URL_);
+                HttpUrl newUrl = HttpUrl.parse(Util.BASE_URL_);
                 hostSelectionInterceptor.setHost(newUrl);
                 context.startActivity(new Intent(context, SeatedActivity.class));
             }
@@ -78,7 +78,7 @@ public class RerestauranAdapter extends RecyclerView.Adapter<RerestauranAdapter.
         holder.btnTableView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HttpUrl newUrl = HttpUrl.parse(util.BASE_URL_);
+                HttpUrl newUrl = HttpUrl.parse(Util.BASE_URL_);
                 hostSelectionInterceptor.setHost(newUrl);
                 context.startActivity(new Intent(context, TableViewActivity.class));
             }

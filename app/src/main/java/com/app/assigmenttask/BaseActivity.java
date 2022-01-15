@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.app.assigmenttask.activity.database.AppDatabase;
-import com.app.assigmenttask.utils.util;
+import com.app.assigmenttask.utils.Util;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected AppDatabase getDatabaseInstance() {
         return Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, util.dataBaseName).build();
+                AppDatabase.class, Util.dataBaseName).build();
     }
 
 }

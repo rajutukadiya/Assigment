@@ -1,6 +1,5 @@
 package com.app.assigmenttask.activity.seated.ui;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,15 +12,12 @@ import com.app.assigmenttask.activity.seated.adapter.SeatedAdapter;
 import com.app.assigmenttask.activity.seated.model.SeatedModel;
 import com.app.assigmenttask.activity.seated.request.ReqSeated;
 import com.app.assigmenttask.databinding.ActivitySeatedBinding;
-import com.app.assigmenttask.retrofit.HostSelectionInterceptor;
 import com.app.assigmenttask.retrofit.RetrofitClient;
 import com.app.assigmenttask.utils.InternetConnection;
-import com.app.assigmenttask.utils.util;
-import com.google.gson.Gson;
+import com.app.assigmenttask.utils.Util;
 
 import java.util.List;
 
-import okhttp3.HttpUrl;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +37,7 @@ public class SeatedActivity extends BaseActivity {
         if (InternetConnection.checkConnection(SeatedActivity.this)) {
             getSeatedList();
         } else {
-            util.showMessage(SeatedActivity.this, R.string.pleasecheckinternetconnection);
+            Util.showMessage(SeatedActivity.this, R.string.pleasecheckinternetconnection);
         }
 
     }

@@ -14,13 +14,10 @@ import com.app.assigmenttask.activity.tableview.request.ReqTableView;
 import com.app.assigmenttask.databinding.ActivityTableViewBinding;
 import com.app.assigmenttask.retrofit.RetrofitClient;
 import com.app.assigmenttask.utils.InternetConnection;
-import com.app.assigmenttask.utils.util;
+import com.app.assigmenttask.utils.Util;
 
 import java.util.List;
 
-import coil.ComponentRegistry;
-import coil.ImageLoader;
-import coil.request.ImageRequest;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +38,7 @@ public class TableViewActivity extends BaseActivity {
         if (InternetConnection.checkConnection(TableViewActivity.this)) {
             getTableDetails();
         } else {
-            util.showMessage(TableViewActivity.this, R.string.pleasecheckinternetconnection);
+            Util.showMessage(TableViewActivity.this, R.string.pleasecheckinternetconnection);
         }
 
     }
@@ -70,25 +67,13 @@ public class TableViewActivity extends BaseActivity {
                 for (FloorsTableModel.OutputDTO.FloorTableDetailsDTO floorTableDetails :
                         floorTableDetailsList) {
                     ImageView imgTableView = new ImageView(TableViewActivity.this);
-                    imgTableView.setLayoutParams(new android.view.ViewGroup.LayoutParams(80, 60));
-                    imgTableView.setMaxHeight(20);
-                    imgTableView.setMaxWidth(20);
+                    imgTableView.setLayoutParams(new android.view.ViewGroup.LayoutParams(100, 80));
                     imgTableView.setX(floorTableDetails.getX_position());
                     imgTableView.setY(floorTableDetails.getY_position());
 
-                    /*ImageRequest imageLoader = new ImageLoader.Builder(TableViewActivity.this)
-                            .componentRegistry(new ComponentRegistry())
-                             .build();
+                    Util.fetchSvg(TableViewActivity.this, floorTableDetails.getTableImg().replace("webroot/", Util.BASE_URL_), imgTableView);
 
-                    ImageRequest request = new ImageRequest.Builder(TableViewActivity.this)
-                            .crossfade(true)
-                            .crossfade(500)
-                            .placeholder(R.drawable.placeholder)
-                            .error(R.drawable.placeholder)
-                            .data(url)
-                            .target(TableViewActivity.this)
-                            .build();
-                            activityTableViewBinding.clview.addView(imgTableView);*/
+                    activityTableViewBinding.clview.addView(imgTableView);
 
                 }
 

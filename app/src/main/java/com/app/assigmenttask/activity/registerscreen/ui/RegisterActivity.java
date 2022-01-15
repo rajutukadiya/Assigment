@@ -12,7 +12,7 @@ import com.app.assigmenttask.activity.database.model.User;
 import com.app.assigmenttask.activity.loginscreen.ui.LoginActivity;
 import com.app.assigmenttask.application.MyApplication;
 import com.app.assigmenttask.databinding.ActivityRegisterBinding;
-import com.app.assigmenttask.utils.util;
+import com.app.assigmenttask.utils.Util;
 
 import java.util.regex.Pattern;
 
@@ -61,7 +61,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         // Define the task
         ((MyApplication) getApplicationContext()).getMyDatabase().runInTransaction(() -> {
             userDao.add(user);
-            util.showMessage(RegisterActivity.this, R.string.successfully_registered);
+            Util.showMessage(RegisterActivity.this, R.string.successfully_registered);
             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
@@ -74,19 +74,19 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         strPhone = activityRegisterBinding.edtPhone.getText().toString().trim();
         strPassword = activityRegisterBinding.edtPassword.getText().toString().trim();
         if (strName.isEmpty()) {
-            util.showMessage(context, R.string.valid_name);
+            Util.showMessage(context, R.string.valid_name);
             return false;
         } else if (strEmail.isEmpty()) {
-            util.showMessage(context, R.string.empty_email);
+            Util.showMessage(context, R.string.empty_email);
             return false;
         } else if (!Pattern.matches(Patterns.EMAIL_ADDRESS.toString(), strEmail)) {
-            util.showMessage(context, R.string.valid_email);
+            Util.showMessage(context, R.string.valid_email);
             return false;
         } else if (strPhone.isEmpty()) {
-            util.showMessage(context, R.string.empty_phone);
+            Util.showMessage(context, R.string.empty_phone);
             return false;
         } else if (strPassword.isEmpty()) {
-            util.showMessage(context, R.string.empty_password);
+            Util.showMessage(context, R.string.empty_password);
             return false;
         }
         return true;

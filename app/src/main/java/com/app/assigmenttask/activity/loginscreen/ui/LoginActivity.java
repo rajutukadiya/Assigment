@@ -12,7 +12,7 @@ import com.app.assigmenttask.activity.homescreen.ui.HomeActivity;
 import com.app.assigmenttask.activity.registerscreen.ui.RegisterActivity;
 import com.app.assigmenttask.application.MyApplication;
 import com.app.assigmenttask.databinding.ActivityLoginBinding;
-import com.app.assigmenttask.utils.util;
+import com.app.assigmenttask.utils.Util;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
@@ -55,9 +55,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         strEmailOrPhone = activityLoginBinding.edtEmailorPassword.getText().toString().trim();
         strPassword = activityLoginBinding.edtPassword.getText().toString().trim();
         if (strEmailOrPhone.isEmpty()) {
-            util.showMessage(context, R.string.empty_email_or_phone);
+            Util.showMessage(context, R.string.empty_email_or_phone);
         } else if (strPassword.isEmpty()) {
-            util.showMessage(context, R.string.empty_password);
+            Util.showMessage(context, R.string.empty_password);
         } else {
 
             if (findUser() != null) {
@@ -65,7 +65,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 startActivity(intent);
                 finish();
             } else {
-                util.showMessage(context, R.string.invalid_credentials);
+                Util.showMessage(context, R.string.invalid_credentials);
             }
         }
     }

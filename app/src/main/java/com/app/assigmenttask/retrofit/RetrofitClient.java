@@ -1,6 +1,6 @@
 package com.app.assigmenttask.retrofit;
 
-import com.app.assigmenttask.utils.util;
+import com.app.assigmenttask.utils.Util;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -10,7 +10,7 @@ public class RetrofitClient {
 
     private static RetrofitClient instance = null;
     HostSelectionInterceptor hostSelectionInterceptor = null;
-    private ApiInterface myApi;
+    private final ApiInterface myApi;
 
     private RetrofitClient(HostSelectionInterceptor hostSelectionInterceptor) {
         this.hostSelectionInterceptor = hostSelectionInterceptor;
@@ -20,12 +20,12 @@ public class RetrofitClient {
             okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(hostSelectionInterceptor)
                     .build();
-            retrofit = new Retrofit.Builder().baseUrl(util.BASE_URL)
+            retrofit = new Retrofit.Builder().baseUrl(Util.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .callFactory(okHttpClient)
                     .build();
         } else {
-            retrofit = new Retrofit.Builder().baseUrl(util.BASE_URL)
+            retrofit = new Retrofit.Builder().baseUrl(Util.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

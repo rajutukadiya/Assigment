@@ -1,6 +1,5 @@
 package com.app.assigmenttask.activity.homescreen.ui;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -11,13 +10,11 @@ import com.app.assigmenttask.R;
 import com.app.assigmenttask.activity.homescreen.adpter.RerestauranAdapter;
 import com.app.assigmenttask.activity.homescreen.model.RerestaurantModel;
 import com.app.assigmenttask.activity.homescreen.request.ReqRestaurants;
-import com.app.assigmenttask.activity.loginscreen.ui.LoginActivity;
-import com.app.assigmenttask.activity.registerscreen.ui.RegisterActivity;
 import com.app.assigmenttask.databinding.ActivityHomeBinding;
 import com.app.assigmenttask.retrofit.HostSelectionInterceptor;
 import com.app.assigmenttask.retrofit.RetrofitClient;
 import com.app.assigmenttask.utils.InternetConnection;
-import com.app.assigmenttask.utils.util;
+import com.app.assigmenttask.utils.Util;
 
 import java.util.List;
 
@@ -43,7 +40,7 @@ public class HomeActivity extends BaseActivity {
         if (InternetConnection.checkConnection(HomeActivity.this)) {
             getRestaurant();
         } else {
-            util.showMessage(HomeActivity.this, R.string.pleasecheckinternetconnection);
+            Util.showMessage(HomeActivity.this, R.string.pleasecheckinternetconnection);
         }
 
 
@@ -56,8 +53,8 @@ public class HomeActivity extends BaseActivity {
         reqRestaurants.setPage(1);
         reqRestaurants.setLatitude(16.230136);
         reqRestaurants.setLongitude(74.3603665);
-        HostSelectionInterceptor hostSelectionInterceptor=new HostSelectionInterceptor();
-        HttpUrl newUrl = HttpUrl.parse(util.BASE_URL);
+        HostSelectionInterceptor hostSelectionInterceptor = new HostSelectionInterceptor();
+        HttpUrl newUrl = HttpUrl.parse(Util.BASE_URL);
         hostSelectionInterceptor.setHost(newUrl);
         Call<RerestaurantModel> call = RetrofitClient.getInstance(hostSelectionInterceptor).getMyApi().getAllRestaurants(reqRestaurants);
         call.enqueue(new Callback<RerestaurantModel>() {
